@@ -1,6 +1,7 @@
 <template>
     <div class="home">
-        <h1>Home</h1>
+        <Header />
+        <h1>Vue Playground</h1>
         <div v-if="error">{{ error }}</div>
         <PostList :posts="posts" />
     </div>
@@ -9,10 +10,11 @@
 <script>
 import getPosts from "../composables/getPosts";
 import PostList from "../components/PostList.vue";
+import Header from "../components/Header.vue";
 
 export default {
     name: "Home",
-    components: { PostList },
+    components: { PostList, Header },
     setup() {
         const { posts, error, load } = getPosts();
 
@@ -25,3 +27,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.home {
+    padding: 12px;
+}
+</style>
